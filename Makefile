@@ -27,9 +27,15 @@ LAB4 = $(call available,$(LAB4_BINS))
 LAB5 = $(call available,$(LAB5_BINS))
 PROGRAMS = $(LAB1) $(LAB2) $(LAB3) $(LAB4) $(LAB5)
 
-.PHONY: all lab1 lab2 lab3 lab4 lab5 run-lab1 run-lab2 run-lab3 run-lab4 run-lab5 run-all debug help clean
+.PHONY: all hello calculator fomakrmats lab1 lab2 lab3 lab4 lab5 run-lab1 run-lab2 run-lab3 run-lab4 run-lab5 run-all debug help clean
 
 all: $(PROGRAMS)
+
+hello: $(BUILD_DIR)/hello
+
+calculator: $(BUILD_DIR)/calculator
+
+formats: $(BUILD_DIR)/formats
 
 lab1: $(LAB1)
 lab2: $(LAB2)
