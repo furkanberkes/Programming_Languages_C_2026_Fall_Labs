@@ -1,3 +1,23 @@
+// Furkan Berke Seferoglu 260ADM048
+// Compile with: gcc -O2 -Wall -Wextra -std=c17 -o calc calc.c -lm
+// Resources: stackoverflow.com and github.com and reddit.com for arithmetic
+// parser examples and explanations w3schools.com for C file handling commands
+// and the commands that I am not sure and https://www.geeksforgeeks.org to
+// understand most of the file handling and memory allocation commands
+// https://claude.ai/share/8abe6490-edc3-4612-97e7-78e9706f596a for a roadmap to
+// a arithmetic parser and the lecture slides
+// Explanations:I used a global 'current_pos' to track the exact byte position
+// while reading. This way, I don't have to rescan the string to find where the
+// error happened Calling functions in a specific order (expression -> term ->
+// power) naturally handles math precedence. For ** to be rightassociative, I
+// made parse_power call itself for the right side first before calculate I used
+// a global 'found_error' to track if an error has been found. This way, I can
+// stop parsing immediately when an error is found and avoid unnecessary
+// calculations I save the position of the token right before processing it. So
+// if an operation fails, I can report the exact place it went wrong I used long
+// long to prevent some round issues and to process with large numbs I used
+// rewind() because I didn't understand the otherway very good so I used the one
+// I understood better
 
 #include <ctype.h>
 #include <stdio.h>
